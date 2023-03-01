@@ -1,0 +1,186 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="column-layout master-view-container">
+    <IgbNavbar class="navbar" master-view-scope>
+        <h6>App Name</h6>
+        <div slot="start">
+            <IgbIconButton Variant="IconButtonVariant.Flat" @onclick="@(e => _navDrawer!.ToggleAsync())">
+                <span class="material-icons">
+                    menu
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbIconButton>
+        </div>
+        <div slot="end">
+            <IgbIconButton Variant="IconButtonVariant.Flat">
+                <span class="material-icons">
+                    search
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbIconButton>
+            <IgbIconButton Variant="IconButtonVariant.Flat">
+                <span class="material-icons">
+                    favorite
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbIconButton>
+            <IgbIconButton Variant="IconButtonVariant.Flat">
+                <span class="material-icons">
+                    more_vert
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbIconButton>
+        </div>
+    </IgbNavbar>
+    <div class="row-layout group">
+        <IgbNavDrawer Open="true" Position="NavDrawerPosition.Relative" @ref="_navDrawer" class="nav-drawer" master-view-scope>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("data-binding"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        home
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Data Binding</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("remote-data"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dns
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Remote Data</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate(""))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Column Interactions</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("filtering"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Filtering</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("grouping-sorting"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Grouping &amp; Sorting</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("headersand-footers"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Headers &amp; Footers</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("column-groups"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Column Groups</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("conditional-styling"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Conditional Styling</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("display-density"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Display Density</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("column-templates"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Column Templates</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("column-templates-one"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Column Templates One</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("column-templates-two"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Column Templates Two</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("row-actions"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Row Actions</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("pager"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Paging</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("grid-toolbar"))">
+                <span slot="icon">
+                    <span class="material-icons icon">
+                        dashboard
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">Toolbar</div>
+            </IgbNavDrawerItem>
+        </IgbNavDrawer>
+        <div class="view-container">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    private IgbNavDrawer? _navDrawer;
+    private void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}

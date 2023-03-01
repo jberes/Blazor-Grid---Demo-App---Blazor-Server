@@ -1,0 +1,45 @@
+@page "/data-binding"
+@inject AutoUsers.IAutoUsersService autoUsersService
+
+<div class="row-layout data-binding-container">
+    <div class="column-layout group">
+        <h5 class="h5">
+            Data Binding
+        </h5>
+        <IgbGrid Data="autoUsersPeopleWithCars" PrimaryKey="Id" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" data-binding-scope>
+            <IgbColumn Field="Id" DataType="GridColumnDataType.String" Header="id" Hidden="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="First_name" DataType="GridColumnDataType.String" Header="first_name" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Last_name" DataType="GridColumnDataType.String" Header="last_name" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Email" DataType="GridColumnDataType.String" Header="email" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Gender" DataType="GridColumnDataType.String" Header="gender" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Job_title" DataType="GridColumnDataType.String" Header="job_title" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Skill" DataType="GridColumnDataType.String" Header="skill" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Company_name" DataType="GridColumnDataType.String" Header="company_name" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Username" DataType="GridColumnDataType.String" Header="username" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Salary" DataType="GridColumnDataType.Number" Header="salary" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Birth_date" DataType="GridColumnDataType.String" Header="birth_date" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Ip_address" DataType="GridColumnDataType.String" Header="ip_address" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Country" DataType="GridColumnDataType.String" Header="country" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="City" DataType="GridColumnDataType.String" Header="city" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Car_make" DataType="GridColumnDataType.String" Header="car_make" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Car_model_year" DataType="GridColumnDataType.Number" Header="car_model_year" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Car_model_vin" DataType="GridColumnDataType.String" Header="car_model_vin" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Car_value" DataType="GridColumnDataType.String" Header="car_value" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Country_code" DataType="GridColumnDataType.String" Header="country_code" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Date_updated" DataType="GridColumnDataType.String" Header="date_updated" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Credit_card" DataType="GridColumnDataType.String" Header="credit_card" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Preferred_currency" DataType="GridColumnDataType.String" Header="preferred_currency" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Avatar_url" DataType="GridColumnDataType.String" Header="avatar_url" Sortable="true" Selectable="false"></IgbColumn>
+        </IgbGrid>
+    </div>
+</div>
+
+@code {
+    private List<AutoUsers.PeopleWithCarsType> autoUsersPeopleWithCars = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        autoUsersPeopleWithCars = await this.autoUsersService.GetPeopleWithCars() ?? autoUsersPeopleWithCars;
+    }
+}

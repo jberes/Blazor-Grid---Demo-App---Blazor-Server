@@ -1,0 +1,99 @@
+@page "/filtering"
+@inject Northwind.INorthwindService northwindService
+
+<div class="row-layout filtering-container">
+    <div class="column-layout group">
+        <h5 class="h5">
+            Filtering
+        </h5>
+        <IgbTabs class="tabs" filtering-scope>
+            <IgbTab Selected="true">
+                <span class="material-icons">filter_1</span>
+                Excel Style
+            </IgbTab>
+            <IgbTabPanel class="row-layout tab-item-content" filtering-scope>
+                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" filtering-scope>
+                    <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="BirthDate" DataType="GridColumnDataType.Date" Header="birthDate" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="HireDate" DataType="GridColumnDataType.Date" Header="hireDate" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Notes" DataType="GridColumnDataType.String" Header="notes" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Sortable="true" Selectable="false"></IgbColumn>
+                </IgbGrid>
+            </IgbTabPanel>
+            <IgbTab>
+                <span class="material-icons">filter_2</span>
+                Quick Filter
+            </IgbTab>
+            <IgbTabPanel class="row-layout tab-item-content" filtering-scope>
+                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" AutoGenerate="false" class="ig-typography grid" filtering-scope>
+                    <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="BirthDate" DataType="GridColumnDataType.Date" Header="birthDate" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="HireDate" DataType="GridColumnDataType.Date" Header="hireDate" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Notes" DataType="GridColumnDataType.String" Header="notes" Sortable="true" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Sortable="true" Selectable="false"></IgbColumn>
+                </IgbGrid>
+            </IgbTabPanel>
+            <IgbTab>
+                <span class="material-icons">filter_3</span>
+                Advanced Filter
+            </IgbTab>
+            <IgbTabPanel class="row-layout tab-item-content" filtering-scope>
+                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AutoGenerate="false" class="ig-typography grid" filtering-scope>
+                    <IgbGridToolbar>
+                        <IgbGridToolbarActions>
+                            <IgbGridToolbarAdvancedFiltering></IgbGridToolbarAdvancedFiltering>
+                        </IgbGridToolbarActions>
+                        <IgbGridToolbarTitle>Grid Toolbar</IgbGridToolbarTitle>
+                    </IgbGridToolbar>
+                    <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="BirthDate" DataType="GridColumnDataType.Date" Header="birthDate" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="HireDate" DataType="GridColumnDataType.Date" Header="hireDate" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="Notes" DataType="GridColumnDataType.String" Header="notes" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                    <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Sortable="true" Filterable="false" Selectable="false"></IgbColumn>
+                </IgbGrid>
+            </IgbTabPanel>
+        </IgbTabs>
+    </div>
+</div>
+
+@code {
+    private List<Northwind.EmployeesType> northwindEmployees = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        northwindEmployees = await this.northwindService.GetEmployees() ?? northwindEmployees;
+    }
+}

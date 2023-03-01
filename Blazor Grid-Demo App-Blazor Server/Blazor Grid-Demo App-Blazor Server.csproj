@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Blazor_Grid_Demo_App_Blazor_Server</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IgniteUI.Blazor" Version="22.2.50" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Shared/MainLayout.razor.css" CssScope="master-view-scope" />
+    <None Update="Pages/DataBinding.razor.css" CssScope="data-binding-scope" />
+    <None Update="Pages/RemoteData.razor.css" CssScope="remote-data-scope" />
+    <None Update="Pages/ColumnInteractions.razor.css" CssScope="column-interactions-scope" />
+    <None Update="Pages/Filtering.razor.css" CssScope="filtering-scope" />
+    <None Update="Pages/GroupingSorting.razor.css" CssScope="grouping-sorting-scope" />
+    <None Update="Pages/HeadersandFooters.razor.css" CssScope="headersand-footers-scope" />
+    <None Update="Pages/ColumnGroups.razor.css" CssScope="column-groups-scope" />
+    <None Update="Pages/ConditionalStyling.razor.css" CssScope="conditional-styling-scope" />
+    <None Update="Pages/DisplayDensity.razor.css" CssScope="display-density-scope" />
+    <None Update="Pages/ColumnTemplates.razor.css" CssScope="column-templates-scope" />
+    <None Update="Pages/ColumnTemplatesOne.razor.css" CssScope="column-templates-one-scope" />
+    <None Update="Pages/ColumnTemplatesTwo.razor.css" CssScope="column-templates-two-scope" />
+    <None Update="Pages/RowActions.razor.css" CssScope="row-actions-scope" />
+    <None Update="Pages/Pager.razor.css" CssScope="pager-scope" />
+    <None Update="Pages/GridToolbar.razor.css" CssScope="grid-toolbar-scope" />
+  </ItemGroup>
+</Project>

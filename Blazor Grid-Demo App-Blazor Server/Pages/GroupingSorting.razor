@@ -1,0 +1,37 @@
+@page "/grouping-sorting"
+@inject Northwind.INorthwindService northwindService
+
+<div class="row-layout grouping-sorting-container">
+    <div class="column-layout group">
+        <h5 class="h5">
+            Grouping &amp; Sorting
+        </h5>
+        <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" grouping-sorting-scope>
+            <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="BirthDate" DataType="GridColumnDataType.Date" Header="birthDate" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="HireDate" DataType="GridColumnDataType.Date" Header="hireDate" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Notes" DataType="GridColumnDataType.String" Header="notes" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
+        </IgbGrid>
+    </div>
+</div>
+
+@code {
+    private List<Northwind.EmployeesType> northwindEmployees = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        northwindEmployees = await this.northwindService.GetEmployees() ?? northwindEmployees;
+    }
+}
