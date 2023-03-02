@@ -33,3 +33,10 @@
     flex-grow: 1;
     flex-basis: 0;
 }
+.upFont {
+    color: green;
+}
+
+.downFont {
+    color: red;
+}

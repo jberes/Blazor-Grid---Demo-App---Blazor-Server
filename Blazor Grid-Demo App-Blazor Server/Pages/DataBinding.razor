@@ -1,3 +1,4 @@
+@page "/"
 @page "/data-binding"
 @inject AutoUsers.IAutoUsersService autoUsersService
 
@@ -6,7 +7,7 @@
         <h5 class="h5">
             Data Binding
         </h5>
-        <IgbGrid Data="autoUsersPeopleWithCars" PrimaryKey="Id" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" data-binding-scope>
+        <IgbGrid Data="autoUsersPeopleWithCars" PrimaryKey="Id"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" data-binding-scope>
             <IgbColumn Field="Id" DataType="GridColumnDataType.String" Header="id" Hidden="true" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="First_name" DataType="GridColumnDataType.String" Header="first_name" Sortable="true" Selectable="false"></IgbColumn>
@@ -40,6 +41,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        autoUsersPeopleWithCars = await this.autoUsersService.GetPeopleWithCars() ?? autoUsersPeopleWithCars;
+        autoUsersPeopleWithCars = await 
+            this.autoUsersService.GetPeopleWithCars() ?? autoUsersPeopleWithCars;
     }
 }

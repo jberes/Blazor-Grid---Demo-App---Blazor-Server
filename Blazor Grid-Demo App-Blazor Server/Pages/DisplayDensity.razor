@@ -6,7 +6,17 @@
         <h5 class="h5">
             Display Density
         </h5>
-        <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" display-density-scope>
+        <div>
+            <IgbDropdown Change="onDropdownChange">
+                <IgbButton slot="target">Select Display Density</IgbButton>
+                <IgbDropdownItem Value="Compact">Compact</IgbDropdownItem>
+                <IgbDropdownItem Value="Cosy">Cosy</IgbDropdownItem>
+                <IgbDropdownItem Value="Comfortable">Comfortable</IgbDropdownItem>
+            </IgbDropdown>
+        </div>
+        <br />
+        <IgbGrid @ref="Grid1" Data="northwindEmployees" PrimaryKey="EmployeeID"
+                 AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" display-density-scope>
             <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
@@ -33,5 +43,33 @@
     protected override async Task OnInitializedAsync()
     {
         northwindEmployees = await this.northwindService.GetEmployees() ?? northwindEmployees;
+    }
+
+    IgbGrid Grid1 { get; set; }
+
+
+    private void onDropdownChange(IgbDropdownItemComponentEventArgs args) 
+    {
+        string strValue = args.Detail.Value;
+        IgniteUI.Blazor.Controls.DisplayDensity dd;
+        if (Enum.TryParse(strValue, out dd))
+        {
+            Grid1.DisplayDensity = dd;
+        }
+
+
+        // this is the long way to check 
+        //if (args.Detail.Value == "Cosy")
+        //{
+        //    Grid1.DisplayDensity = IgniteUI.Blazor.Controls.DisplayDensity.Cosy;
+        //}
+        //else if (args.Detail.Value == "Comfortable")
+        //{
+        //    Grid1.DisplayDensity = IgniteUI.Blazor.Controls.DisplayDensity.Comfortable;
+        //}
+        //else
+        //{
+        //    Grid1.DisplayDensity = IgniteUI.Blazor.Controls.DisplayDensity.Compact;
+        //}
     }
 }

@@ -34,7 +34,8 @@
         </div>
     </IgbNavbar>
     <div class="row-layout group">
-        <IgbNavDrawer Open="true" Position="NavDrawerPosition.Relative" @ref="_navDrawer" class="nav-drawer" master-view-scope>
+        <IgbNavDrawer Open="true" Position="NavDrawerPosition.Relative" @ref="_navDrawer" 
+        class="nav-drawer" master-view-scope>
             <IgbNavDrawerItem @onclick="@(e => Navigate("data-binding"))">
                 <span slot="icon">
                     <span class="material-icons icon">
@@ -53,7 +54,7 @@
                 </span>
                 <div slot="content">Remote Data</div>
             </IgbNavDrawerItem>
-            <IgbNavDrawerItem @onclick="@(e => Navigate(""))">
+            <IgbNavDrawerItem @onclick="@(e => Navigate("column-interactions"))">
                 <span slot="icon">
                     <span class="material-icons icon">
                         dashboard
@@ -123,7 +124,7 @@
                     </span>
                     <IgbRipple></IgbRipple>
                 </span>
-                <div slot="content">Column Templates</div>
+                <div slot="content">Image Column Type</div>
             </IgbNavDrawerItem>
             <IgbNavDrawerItem @onclick="@(e => Navigate("column-templates-one"))">
                 <span slot="icon">
@@ -132,7 +133,7 @@
                     </span>
                     <IgbRipple></IgbRipple>
                 </span>
-                <div slot="content">Column Templates One</div>
+                <div slot="content">Image Column JS</div>
             </IgbNavDrawerItem>
             <IgbNavDrawerItem @onclick="@(e => Navigate("column-templates-two"))">
                 <span slot="icon">
@@ -168,7 +169,7 @@
                     </span>
                     <IgbRipple></IgbRipple>
                 </span>
-                <div slot="content">Toolbar</div>
+                <div slot="content">Exporting & Toolbar</div>
             </IgbNavDrawerItem>
         </IgbNavDrawer>
         <div class="view-container">

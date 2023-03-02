@@ -12,7 +12,7 @@
                 Excel Style
             </IgbTab>
             <IgbTabPanel class="row-layout tab-item-content" filtering-scope>
-                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" filtering-scope>
+                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" filtering-scope>
                     <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
                     <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
                     <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
@@ -36,7 +36,7 @@
                 Quick Filter
             </IgbTab>
             <IgbTabPanel class="row-layout tab-item-content" filtering-scope>
-                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" AutoGenerate="false" class="ig-typography grid" filtering-scope>
+                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AllowFiltering="true" AutoGenerate="false" class="ig-typography grid" filtering-scope>
                     <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
                     <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
                     <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
@@ -60,7 +60,7 @@
                 Advanced Filter
             </IgbTab>
             <IgbTabPanel class="row-layout tab-item-content" filtering-scope>
-                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AutoGenerate="false" class="ig-typography grid" filtering-scope>
+                <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AutoGenerate="false" class="ig-typography grid" filtering-scope>
                     <IgbGridToolbar>
                         <IgbGridToolbarActions>
                             <IgbGridToolbarAdvancedFiltering></IgbGridToolbarAdvancedFiltering>

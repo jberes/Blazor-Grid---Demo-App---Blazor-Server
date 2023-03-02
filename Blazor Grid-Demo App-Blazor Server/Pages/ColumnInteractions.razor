@@ -1,4 +1,4 @@
-@page "/"
+@page "/column-interactions"
 @inject Northwind.INorthwindService northwindService
 
 <div class="row-layout column-interactions-container">
@@ -6,7 +6,7 @@
         <h5 class="h5">
             Column Interactions
         </h5>
-        <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" Moving="true" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" column-interactions-scope>
+        <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" Moving="true" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" column-interactions-scope>
             <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Resizable="true" Filterable="false" Selectable="false"></IgbColumn>

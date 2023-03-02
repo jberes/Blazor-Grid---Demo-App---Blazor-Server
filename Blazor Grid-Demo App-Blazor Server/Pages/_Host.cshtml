@@ -38,6 +38,114 @@
 
     <script src="_content/IgniteUI.Blazor/app.bundle.js"></script>
     <script src="_framework/blazor.server.js"></script>
+
+    <script>
+
+        // Change the FONT color based on Title
+    igRegisterScript("HighlightMr", (ctx) => {
+        var html = window.igTemplating.html;
+        var value = ctx.cell.value;
+
+        if (value == 'Mr') {
+                    return html`<span style="color: blue">${value}</span>`;
+        }
+        else {
+            return html`<span>${value}</span>`;
+        }
+    }, false);
+
+        // Format the Row based on the Manager ID = 45
+    igRegisterScript("RowStylesHandler", () => {
+            return {
+                background: (row) => (+row.data['ManagerID'] == 45 && +row.data['ManagerID'] == 45) ? '#FF000088' : '#00000000'
+            };
+        }, true);
+
+        // Format the Row based on the Manager ID = 45 or -1, and change the color
+    igRegisterScript("RowStylesHandlerMultiple", () => {
+        return {
+        background: (row) => {
+                if (+row.data['ManagerID'] === -1) {
+                return '#FF000088'; // Red
+                } else if (+row.data['ManagerID'] === 45) {
+                return '#FFFF0088'; // Yellow
+                } else {
+                return '#00000000'; // Transparent
+                }
+            }
+        };
+    }, true);
+
+    // Load Image in a Column
+        igRegisterScript("ImageCellTemplate", (ctx) => {
+            var html = window.igTemplating.html;
+            return html`<div>
+                <img src="${ctx.cell.value}"/>
+            </div>`;
+        }, false);
+
+
+
+    igRegisterScript("CustomTitleSummary", (event) => {
+    if (event.detail.field === "TitleOfCourtesy") {
+        const allData = event.detail.data;
+        const filteredData = allData.filter((item) => item.TitleOfCourtesy.includes("Mr"));
+        const count = filteredData.length;
+        event.detail.summaries = [
+                    {
+                        key: "titleOfCourtesySummary",
+                        label: "Mr Count",
+                        summaryResult: count
+                    }
+                ];
+            }
+        }, false);
+
+
+        igRegisterScript("SummaryTemplate", (ctx) => {
+            var html = window.igTemplating.html;
+            return html`<div>
+            <span> ${ctx.$implicit[0].label} - ${ctx.$implicit[0].summaryResult} </span>
+        </div>`
+        }, false);
+
+
+
+class WebGridDiscontinuedSummary {
+    operate(data, allData, fieldName) {
+        const discontinuedData = allData.filter((rec) => rec['discontinued']).map(r => r[fieldName]);
+        const result = [];
+        result.push({
+            key: 'products',
+            label: 'Products',
+            summaryResult: data.length
+        });
+        result.push({
+            key: 'total',
+            label: 'Total Items',
+            summaryResult: data.length ? data.reduce((a, b) => +a + +b) : 0
+        });
+        result.push({
+            key: 'discontinued',
+            label: 'Discontinued Products',
+            summaryResult: allData.map(r => r['discontinued']).filter((rec) => rec).length
+        });
+        result.push({
+            key: 'totalDiscontinued',
+            label: 'Total Discontinued Items',
+            summaryResult: discontinuedData.length ? discontinuedData.reduce((a, b) => +a + +b) : 0
+        });
+        return result;
+    }
+}
+
+       igRegisterScript("WebGridCustomSummary", (event) => {
+            if (event.detail.field === "unitsInStock") {
+                event.detail.summaries = WebGridDiscontinuedSummary;
+            }
+        }, false);
+
+    </script>
 </body>
 </html>
 

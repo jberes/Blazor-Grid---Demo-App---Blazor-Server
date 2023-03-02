@@ -6,7 +6,7 @@
         <h5 class="h5">
             Row Actions
         </h5>
-        <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" RowEditable="true" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" row-actions-scope>
+        <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" RowEditable="true" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" row-actions-scope>
             <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
@@ -25,7 +25,10 @@
             <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Sortable="true" Selectable="false"></IgbColumn>
             <IgbActionStrip>
                 <IgbGridPinningActions></IgbGridPinningActions>
-                <IgbGridEditingActions AddRow="true"></IgbGridEditingActions>
+                @*<IgbGridEditingActions AddRow="true"></IgbGridEditingActions>*@
+                <IgbButton Title="Find Cats">
+                    <IgbIcon>help</IgbIcon>
+                </IgbButton>
             </IgbActionStrip>
         </IgbGrid>
     </div>
@@ -38,4 +41,5 @@
     {
         northwindEmployees = await this.northwindService.GetEmployees() ?? northwindEmployees;
     }
+
 }
