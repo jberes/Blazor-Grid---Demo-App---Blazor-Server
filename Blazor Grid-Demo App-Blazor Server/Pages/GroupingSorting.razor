@@ -6,10 +6,8 @@
         <h5 class="h5">
             Grouping &amp; Sorting
         </h5>
-        <IgbGrid @ref="grid" 
+        <IgbGrid 
             GroupingExpressions="GroupingExpression1"  
-            
-
             
             Data="northwindEmployees" PrimaryKey="EmployeeID"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" grouping-sorting-scope>
             
@@ -36,37 +34,17 @@
 
 @code {
     private List<Northwind.EmployeesType> northwindEmployees = new();
-    private IgbGrid grid;
-    private IgbGroupingExpression[] _groupingExpression1 = null;
-
 
     protected override async Task OnInitializedAsync()
     {
         northwindEmployees = await this.northwindService.GetEmployees() ?? northwindEmployees;
-        //grid.GroupBy()
-
     }
+
 
     public IgbGroupingExpression[] GroupingExpression1
     {
-        get
-        {
-            //  if (this._groupingExpression1 == null)
-            //  {
-             var groupingExpression1 = new IgbGroupingExpression[1];
-
-            var groupingExpression2 = new IgbGroupingExpression();
-
-            groupingExpression2.FieldName = "TitleOfCourtesy";
-            groupingExpression2.Dir = SortingDirection.Asc;
-            groupingExpression2.IgnoreCase = false;
-
-            groupingExpression1[0] = groupingExpression2;
-            //return groupingExpression2;
-            this._groupingExpression1 = groupingExpression1;
-           // }
-            return this._groupingExpression1;
-        }
+        get{
+            return new[]
+            {new IgbGroupingExpression { FieldName = "TitleOfCourtesy", Dir = SortingDirection.Asc }};}
     }
-
 }

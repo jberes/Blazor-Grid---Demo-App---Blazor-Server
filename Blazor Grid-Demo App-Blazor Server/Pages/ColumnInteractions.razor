@@ -7,20 +7,20 @@
             Column Interactions
         </h5>
         <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" Moving="true" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" column-interactions-scope>
-            <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
             <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Resizable="true" Filterable="false" Selectable="false"></IgbColumn>
-            <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Width="260px" Pinned="true" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Width="260px" Pinned="true" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
+            <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
             <IgbColumn Field="BirthDate" DataType="GridColumnDataType.Date" Header="birthDate" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="HireDate" DataType="GridColumnDataType.Date" Header="hireDate" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
+            <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
+            <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
+            <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
+            <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
             <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
-            <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Sortable="true" Resizable="true" Selectable="false" Groupable="true"></IgbColumn>
             <IgbColumn Field="Notes" DataType="GridColumnDataType.String" Header="notes" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Sortable="true" Resizable="true" Selectable="false"></IgbColumn>
         </IgbGrid>
