@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IgniteUI.Blazor" Version="22.2.50" />
+    <PackageReference Include="IgniteUI.Blazor.Trial" Version="22.2.52" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +24,6 @@
     <None Update="Pages/DisplayDensity.razor.css" CssScope="display-density-scope" />
     <None Update="Pages/ColumnTemplates.razor.css" CssScope="column-templates-scope" />
     <None Update="Pages/ColumnTemplatesOne.razor.css" CssScope="column-templates-one-scope" />
-    <None Update="Pages/ColumnTemplatesTwo.razor.css" CssScope="column-templates-two-scope" />
     <None Update="Pages/RowActions.razor.css" CssScope="row-actions-scope" />
     <None Update="Pages/Pager.razor.css" CssScope="pager-scope" />
     <None Update="Pages/GridToolbar.razor.css" CssScope="grid-toolbar-scope" />

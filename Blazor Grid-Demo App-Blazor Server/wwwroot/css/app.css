@@ -31,6 +31,19 @@ img, video {
     vertical-align: middle;
 }
 
+igc-tabs.tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+    igc-tabs.tabs::part(headers) {
+    flex: none;
+    }
+
+    igc-tabs.tabs::part(content) {
+    flex: 1 1 auto;
+    }
+
 igc-badge .material-icons {
     font-size: 1rem;
     /* let text overflow without enlarging the badge */
@@ -76,3 +89,4 @@ h1:focus {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+

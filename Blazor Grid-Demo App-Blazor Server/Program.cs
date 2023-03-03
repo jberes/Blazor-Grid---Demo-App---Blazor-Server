@@ -15,6 +15,10 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddScoped<IAutoUsersService>(sp => new AutoUsersService(new HttpClient()));
 builder.Services.AddScoped<INorthwindService>(sp => new NorthwindService(sp.GetRequiredService<IWebHostEnvironment>()));
+
+builder.Services.AddIgniteUIBlazor(
+    typeof(IgbMultiColumnComboBoxModule));
+
 RegisterIgniteUI(builder.Services);
 
 void RegisterIgniteUI(IServiceCollection services)

@@ -6,12 +6,10 @@
         <h5 class="h5">
             Grouping &amp; Sorting
         </h5>
-        <IgbGrid 
-            GroupingExpressions="GroupingExpression1"  
-            
-            Data="northwindEmployees" PrimaryKey="EmployeeID"DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" grouping-sorting-scope>
+        <IgbGrid @ref="Grid1"
             
             
+            Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="IgniteUI.Blazor.Controls.DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" grouping-sorting-scope>
             <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
             <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Groupable="true" Sortable="true" Selectable="false"></IgbColumn>
@@ -34,6 +32,7 @@
 
 @code {
     private List<Northwind.EmployeesType> northwindEmployees = new();
+    IgbGrid Grid1 { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,10 +40,26 @@
     }
 
 
-    public IgbGroupingExpression[] GroupingExpression1
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        get{
-            return new[]
-            {new IgbGroupingExpression { FieldName = "TitleOfCourtesy", Dir = SortingDirection.Asc }};}
+        if (firstRender)
+        {
+            this.Grid1.GroupingExpressions =
+            new[] {
+                    new IgbGroupingExpression
+                    {
+                        FieldName = "TitleOfCourtesy",
+                        Dir = SortingDirection.Asc
+                    }
+            };
+        }
     }
+
+
+    //public IgbGroupingExpression[] GroupingExpression1
+    //{
+    //    get{
+    //        return new[]
+    //        {new IgbGroupingExpression { FieldName = "TitleOfCourtesy", Dir = SortingDirection.Asc }};}
+    //}
 }
